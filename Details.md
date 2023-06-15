@@ -441,3 +441,86 @@ Result:
 
 
 ![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/688cfc85-270e-4ba1-86ed-2e619e53397a)
+
+
+
+
+
+
+### ❎ 06.  No Database Selected
+
+1. After opening MySQL Workbench, before starting to write the queries, the selection of a database is mandatory.
+
+ 
+### ☑️ 07.  Solution to this Issue
+
+```SQL
+USE sql_store
+```
+
+
+Every time, you should select a database before writing the query. Otherwise, MySQL will show the error message.
+
+
+
+
+### ▶️ 08. Example of `NOT`
+
+
+```SQL
+SELECT *
+FROM customers 
+WHERE NOT (birth_date > "1990-01-01" OR points > 1000); 
+```
+
+
+
+
+RESULT:
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/33ebb4be-8d83-4f96-9f60-ae0828d1e3a9)
+
+
+
+
+
+
+### 💡 09. Operations of `NOT`
+
+
+
+01. `WHERE NOT(birth_date > "1990-01-01" OR points > 1000)`.
+
+
+Generally, it will convert all the operations to opposite.
+
+
+02. The conversion will be:
+
+`WHERE (birth_date <= "1990-01-01" AND points <= 1000)`
+
+
+
+
+
+
+### ✍️ 10. Exercise
+
+
+
+ Question: From the `order_items` table, get the items for order#6 where total price is greater than 30.
+
+
+
+
+```SQL
+SELECT *
+FROM order_items
+WHERE order_id = 6 AND quantity * unit_price > 30;
+```
+
+
+
+Result:
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/c2f35704-568a-4aff-a6be-076d6c4eb106)
