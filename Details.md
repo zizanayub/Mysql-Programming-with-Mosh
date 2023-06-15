@@ -274,7 +274,7 @@ Result:
 
 
 
-### ▶️ 06. Exercise: Get the orders placed this year. 
+### ✍️ 06. Exercise: Get the orders placed this year. 
 
 
 
@@ -524,3 +524,232 @@ WHERE order_id = 6 AND quantity * unit_price > 30;
 Result:
 
 ![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/c2f35704-568a-4aff-a6be-076d6c4eb106)
+
+
+
+
+
+
+## 04. The `IN` Operator
+
+
+
+### ❓ 01. Why `IN`?
+
+
+
+1. In SQL, we cannot combine strings with boolean operations.
+
+
+
+Let's check the following code:
+
+```SQL
+
+SELECT *
+FROM customers
+WHERE state = "VA" OR "GA" OR "FL"; 
+```
+
+
+
+
+Result:
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/cc722b0b-8604-40b5-9843-6b9a863e7405)
+
+
+
+
+It will show only the result of "VA"
+
+
+
+
+
+
+2. To solve this, we can add "state=" for each state name.
+
+
+
+```SQL
+SELECT *
+FROM customers
+WHERE state = "VA" OR state = "GA" OR state = "FL";
+```
+
+
+
+Result: 
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/4d7d2d95-dcc5-400e-bd62-c790555215d6)
+
+
+
+
+
+3. To make the code cleaner and nice, we can utilize the `IN` operator.
+
+
+
+```SQL
+SELECT *
+FROM customers
+WHERE state IN ("VA", "FL", "GA"); 
+```
+
+
+
+
+This query will show the same Result:
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/a6fa6e55-9f56-449c-b131-ea64ff19e25c)
+
+
+
+
+### 💡 02. Timing of usage of `IN` Operator
+
+Use the `IN` operator whenever you need to compare any attribute to the list of values. 
+
+
+
+
+### ✍️ 03. Exercise (IN Operator)
+
+
+-Question: Return products with quantity in stock equal to 49,38,72.
+
+
+-Solution:
+
+
+
+```SQL
+SELECT *
+FROM products
+WHERE quantity_in_stock IN (49,38,72); 
+```
+
+
+
+
+-Result:
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/c74f6268-0b64-4f3f-822a-fc529ae087c9)
+
+
+
+
+
+PERFECT!!
+
+
+
+
+
+
+
+## 05. The `BETWEEN` Operator
+
+
+
+### ▶️ 01. Where We are Using `BETWEEN` operator?
+
+
+
+1. Normally, we were using `AND` operator to show the customers with points between 1000 and 3000.
+
+
+```SQL
+-- Find the customers with points between 1000 and 3000. 
+SELECT *
+FROM customers
+WHERE points >= 1000 AND points <= 3000; 
+```
+
+
+
+
+
+Result:
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/4a5836f3-0b53-4e2b-9c33-579314ce42a8)
+
+
+
+
+
+2. But there is a smarter way to make the code cleaner with the `BETWEEN` operator.
+
+
+```SQL
+-- Show the customers with points between 1000 and 3000.
+SELECT *
+FROM customers
+WHERE points BETWEEN 1000 and 3000; 
+```
+
+
+
+
+It will return the same result: 
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/e1b0b32f-39cf-4c3c-9bdf-cc07cd2e2a05)
+
+
+
+
+
+
+### ❓ 02. `BETWEEN` Operator Mechanism
+
+
+
+1. It always takes the inclusive values of the inputs.
+
+
+
+2. It will show the inclusive values of 1000 and 3000, in the example.
+
+
+
+
+
+
+### ✍️ 03. Exercise (`BETWEEN` Operator)
+
+
+
+-Question: Return customers born between 01/01/1990 AND 01/01/2000.
+
+
+
+-Solution:
+
+
+
+
+
+```SQL
+SELECT *
+FROM customers
+WHERE birth_date BETWEEN "1990-01-01" AND "2000-01-01"; 
+```
+
+
+
+
+-Result:
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/8042bed7-081d-4bad-9999-d5bf1bd753e1)
+
+
+
+PERFECT!!!
