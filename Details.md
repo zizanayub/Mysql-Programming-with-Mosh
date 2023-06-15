@@ -753,3 +753,302 @@ WHERE birth_date BETWEEN "1990-01-01" AND "2000-01-01";
 
 
 PERFECT!!!
+
+
+
+
+
+## 06. The `LIKE` Operator
+
+
+### ❓ 01. Why We Use `Like` Operator?
+
+
+
+
+For receiving rows to match with specific string patterns.
+
+
+
+
+### ▶️ 02. Show the Customers whose Last Name Starts with B.
+
+
+
+
+```SQL
+SELECT *
+FROM customers
+WHERE last_name LIKE "b%"; 
+```
+
+
+
+
+
+Result: 
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/d0f7e188-539a-40e5-ba31-e29f69a97cdd)
+
+
+
+
+
+### ▶️ 03. Show the Customers whose Last Name Starts with Brush.
+
+
+
+
+
+```SQL
+
+-- Show the customers whose last name starts with "Brush"
+SELECT *
+FROM customers
+WHERE last_name LIKE "brush%"; 
+```
+
+
+
+
+Result:
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/ab1ac3d7-6be0-4765-8a8e-3f41a4dc2bd0)
+
+
+
+
+
+### ▶️ 04. Show the Customers whose Last Name contains "B"
+
+
+
+
+```SQL
+
+-- Show the Customers whose Last Name contains "B"
+SELECT *
+FROM customers
+WHERE last_name LIKE "%b%"; 
+```
+
+
+
+
+Result: 
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/adf239d8-b12d-4e5e-9652-714cfdb7588b)
+
+
+
+
+
+### ▶️ 05. Show the Customers whose Last Name ends with "Y"
+
+
+
+
+
+```SQL
+-- Show the Customers whose Last Name ends with "Y"
+
+SELECT *
+FROM customers
+WHERE last_name LIKE "%y";
+```
+
+
+
+
+
+Result: 
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/f13af5a5-cec4-4b0b-a53a-d66aa56d6180)
+
+
+
+
+
+### ▶️ 06. Show the Customers whose Last Name ends with "Y" but that name have only two characters. 
+
+
+
+```SQL
+-- Show the Customers whose Last Name ends with "Y" but that name have only two characters. 
+SELECT *
+FROM customers 
+WHERE last_name LIKE "_y";
+```
+
+
+
+
+Result:
+
+No rows.
+
+
+
+
+### ▶️ 07. Show the Customers whose Last Name ends with "Y" but that name have 6 characters in total. 
+
+
+
+
+
+```SQL
+-- Show the Customers whose Last Name ends with "Y" but that name have 6 characters in total. 
+
+SELECT *
+FROM customers
+WHERE last_name LIKE "_____y";
+```
+
+
+
+
+Result:
+
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/80721572-1bcf-4768-bf7b-03365255acb2)
+
+
+
+
+
+### ▶️ 08. Show the Customers whose Last Name ends with "Y", starts with "B" but and that name have 6 characters in total. 
+
+
+
+
+```SQL
+-- Starts with B, Ends with Y, have 6 characters in total
+SELECT *
+FROM customers
+WHERE last_name LIKE "b____y"; 
+```
+
+
+
+
+Result:
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/46b620c2-b2d4-4422-9f02-5e3119221ab8)
+
+
+
+
+
+### 💡 09. What do "%" and "_" mean?
+
+
+1. % = any number of characters.
+
+
+2. _ = Single number of characters.
+
+
+
+
+
+### ✍️ 10. Exercise (`LIKE` Operator)
+
+
+
+
+
+- Question 1. Get the customers whose addresses contain "TRAIL" OR "Avenue".
+
+
+
+
+Solution: 
+
+
+```SQL
+-- Exercise-01 (LIKE)
+SELECT *
+FROM customers 
+WHERE address LIKE "%trail%" OR address LIKE "%avenue%";
+```
+
+
+
+
+Result:
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/2d8e5834-f4f7-4955-b9c6-17aab995eae8)
+
+
+
+
+
+-Question 2. Get the customers whose phone numbers end with 9.
+
+
+
+Solution: 
+
+```SQL
+-- Phone numbers end with 9
+SELECT *
+FROM customers
+WHERE phone LIKE "%9"; 
+```
+
+
+
+
+
+Result:
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/85014cfe-4b85-4c4b-8b9a-41f64d762302)
+
+
+
+
+
+-Question-3. Get the customers whose phone numbers not ended with 9.
+
+
+
+
+```SQL
+-- Phone number Not ends with 9
+SELECT *
+FROM customers
+WHERE phone NOT LIKE "%9";
+```
+
+
+
+
+Result:
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/b9c056d9-e432-4953-ad88-a8c6704aa4e3)
