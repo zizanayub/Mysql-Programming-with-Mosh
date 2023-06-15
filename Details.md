@@ -294,3 +294,150 @@ Result:
 
 
 ![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/224026cc-cd19-445c-bae8-1e87717d8f30)
+
+
+
+
+
+
+
+
+## 03. The `AND`, `OR` and `NOT` Operators
+
+
+
+### ▶️ 01. Example of `AND`
+
+
+
+```SQL
+-- Select customer whose birthdate is later than 01-01-1990 and points is greater than 1000. 
+
+SELECT *
+FROM customers
+WHERE birth_date > "1990-01-01" AND points > 1000; 
+```
+
+
+
+
+Result:
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/1b177a83-f5b5-4ef2-a7fc-6ac46a41e108)
+
+
+1. This query will return 2 rows.
+2. For `AND` operator, both of the conditions need to be true. 
+
+
+
+
+
+
+
+### ▶️ 02. Example of `OR`
+
+
+
+```SQL
+-- Select the customers with birthdate later than 1st January 1990 OR points greater than 1000. 
+
+SELECT *
+FROM customers
+WHERE birth_date > "1990-01-01" OR points > 1000; 
+```
+
+
+
+
+Result:
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/a387954d-3b5b-41b2-a431-1c8adea8f57a)
+
+
+
+
+
+
+1. It will return 7 rows.
+2. The query will be executed if one of the conditions is TRUE.
+
+
+
+
+
+
+
+### ❎ 03. Example of `OR` + `AND` (Wrong)
+
+
+```SQL
+SELECT *
+FROM customers 
+WHERE birth_date > "01-01-1990" OR points > 1000 AND state = 'VA';
+```
+
+
+
+**Result: Error Code: 1525. Incorrect DATE value: '01-01-1990'
+
+
+
+
+
+### ☑️ 04. Example of `OR` + `AND` (Right)
+
+```SQL
+
+SELECT *
+FROM customers 
+WHERE birth_date > "1990-01-01" OR points > 1000 AND state = 'VA';
+```
+
+
+
+Result: 
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/c02ef799-0919-4d78-94fb-5f34c1d2b99d)
+
+
+
+
+
+### 💡 05. Order of `AND` and `OR`
+
+1.`points > 1000 AND state = 'VA'` this portion will be executed first in the last query. 
+
+
+2. Orders of AND and OR: AND will be executed first and then OR.
+
+
+3. In the result, there is no customer with the state = "VA" and points greater than 1000. So, it didn't work!
+
+
+4. Most specifically, the query will be
+
+
+```SQL
+
+SELECT *
+FROM customers
+WHERE birth_date > '1990-01-01' OR 
+	(points > 1000 AND state = "VA");
+
+ ```
+
+
+
+
+Result: 
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/688cfc85-270e-4ba1-86ed-2e619e53397a)
