@@ -1052,3 +1052,158 @@ Result:
 
 
 ![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/b9c056d9-e432-4953-ad88-a8c6704aa4e3)
+
+
+
+
+
+
+
+## 06. The `REGEXP` Operator
+
+
+
+### ▶️ 01. Last name containing "field"
+
+
+
+```SQL
+SELECT *
+FROM customers 
+WHERE last_name REGEXP "field"; 
+```
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/a52bdd3b-d23b-4489-8871-871939ec0ec7)
+
+
+
+
+
+
+### ▶️ 02. Last name starting with "field"
+
+
+
+
+```SQL
+-- Last name starting with "field"
+SELECT *
+FROM customers
+WHERE last_name REGEXP "^field";
+```
+
+
+
+
+Result: 
+
+No rows.
+
+
+
+
+
+### ▶️ 03. Last name ending with "field"
+
+
+
+
+```SQL
+-- Last name ending with "field"
+SELECT *
+FROM customers
+WHERE last_name REGEXP "field$";
+```
+
+
+
+
+Result:
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/9cbbd7f5-57c7-4bf6-9ebb-9dff9c5ee959)
+
+
+
+
+
+### ▶️ 04. Containing "Mac" or "Field"
+
+
+
+
+```SQL
+-- Last name containing "Mac" or "Field"
+SELECT *
+FROM customers
+WHERE last_name REGEXP "mac|field";
+```
+
+
+
+
+Result:
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/15ec090e-71ee-4c57-b7c6-98325198304a)
+
+
+
+
+
+
+### ▶️ 05. Last Name Containing "Mac" or "Field" or "Rose"
+
+
+
+
+```SQL
+
+-- Last name containing "field" or "mac" or "rose"
+SELECT *
+FROM customers
+WHERE last_name REGEXP "field|mac|rose";
+```
+
+
+
+Result: 
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/de056d2f-f01f-46bc-bd05-85b2d2c5c22b)
+
+
+
+
+
+
+### ▶️ 06. Last Name Containing "Mac" or  "Rose" or starting with "FIeld"
+
+
+
+
+```SQL
+-- Last Name Containing "Mac" or  "Rose" or starting with "Field"
+SELECT *
+FROM customers
+WHERE last_name REGEXP "^field|mac|rose"; 
+```
+
+
+
+
+Result:
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/5188251a-053f-4f62-b22b-45f9e138064f)
+
+
