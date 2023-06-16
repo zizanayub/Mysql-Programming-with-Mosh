@@ -1059,7 +1059,7 @@ Result:
 
 
 
-## 06. The `REGEXP` Operator
+## 07. The `REGEXP` Operator
 
 
 
@@ -1339,3 +1339,190 @@ Result:
 
 
 
+### ✍️ Exercise-01. First names are "Elka" or "Ambur"
+
+
+
+
+```SQL
+-- Exercise-01. First names are "Elka" or "Ambur"
+SELECT *
+FROM customers
+WHERE first_name REGEXP "elka|ambur";
+```
+
+
+
+Result:
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/e4a0931e-c9dc-472d-afd0-2059d829f369)
+
+
+
+
+
+### ✍️ Exercise-02. Last names ending with ey or on
+
+
+
+```SQL
+-- Exercise-02. Last names ending with ey or on
+SELECT *
+FROM customers
+WHERE last_name REGEXP "ey$|on$"; 
+```
+
+
+
+Result:
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/f5f9814b-eaed-40f4-b465-8ecc001c1292)
+
+
+
+
+
+
+### ✍️ Exercise-03. Last names starting with my or containing se.
+
+
+
+
+```SQL
+-- Last names starting with my or containing se.
+SELECT *
+FROM customers
+WHERE last_name REGEXP "^my|se";
+```
+
+
+
+
+Result:
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/54ec875c-41e6-4a9b-8fce-d1eccb2c7d1d)
+
+
+
+
+
+
+### ✍️ Exercise-04. Last names containing b followed by r or u.
+
+
+
+```SQL
+-- Last names containing b followed by r or u.
+SELECT *
+FROM customers
+WHERE last_name REGEXP "b[ru]"; 
+```
+
+
+
+
+Result:
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/96858758-2dde-4514-8608-74a356eb86d3)
+
+
+
+
+
+
+
+## 08. The `REGEXP` Operator
+
+
+
+
+### ▶️ 01. Select customers whose phone numbers are null.
+
+
+
+
+```SQL
+-- Select customers whose phone numbers are null.
+
+SELECT *
+FROM customers
+WHERE phone IS NULL; 
+```
+
+
+
+
+Result:
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/b6628964-d43d-45f4-afe1-16685fe01c0c)
+
+
+
+
+
+
+### ▶️ 02. Select customers whose phone numbers are not null.
+
+
+
+
+```SQL
+-- Select customers whose phone numbers are not null.
+SELECT *
+FROM customers
+WHERE phone IS NOT NULL; 
+```
+
+
+
+
+Result:
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/977ba91d-fdcb-4b76-a969-52b1d4f58335)
+
+
+
+
+
+### ✍️ Exercise (IS NULL Operator)
+
+
+Question: Get the orders that are not shipped.
+
+
+
+
+```SQL
+-- Get the orders that are not shipped.
+SELECT *
+FROM orders
+WHERE shipped_date IS NULL; 
+```
+
+
+
+
+Result:
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/3a8669b9-73ba-410f-a835-d06ec0c3966c)
+
+
+
+
+PERFECT!!
