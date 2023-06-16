@@ -1207,3 +1207,135 @@ Result:
 ![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/5188251a-053f-4f62-b22b-45f9e138064f)
 
 
+
+
+
+
+### ▶️ 07. Last Name Containing "Mac" or  "Rose" or ending with "FIeld"
+
+
+
+
+```SQL
+-- Last Name Containing "Mac" or  "Rose" or ending with "FIeld"
+SELECT *
+FROM customers
+WHERE last_name REGEXP "field$|rose|mac";
+```
+
+
+
+
+Result:
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/1912c6c5-3baa-4078-a818-91482a726593)
+
+
+
+
+
+
+### ▶️ 08. Last Name Containing ge, ie, me
+
+
+```SQL
+-- Last Name Containing ge, ie, me
+SELECT *
+FROM customers
+WHERE last_name REGEXP "[gim]e";
+```
+
+
+
+Result:
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/932f9bf4-684d-45a8-9023-cc5102d7261e)
+
+
+
+### 💡 09. what does `WHERE last_name REGEXP "[gim]e"` mean?
+
+This query will return the words where g and e are together or i and e are together. Example: Brushfield. Not like, Alines. Here, i and e are not together.
+
+
+
+
+
+### ✍️ 10. Write the query with the "Like" Operator.
+
+
+
+
+```SQL
+-- Like Operator
+SELECT *
+FROM customers
+WHERE last_name LIKE "%ge%" OR last_name LIKE "%me%" OR last_name LIKE "%ie%";
+```
+
+
+
+Result:
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/d8a349ab-e011-45e3-814b-ef72436d144e)
+
+
+
+
+The results are same. 
+
+
+
+
+
+### ▶️ 11. Last Name Containing e and then f, m, q
+
+
+
+```SQL
+-- Last Name Containing e and then f, m, q
+SELECT *
+FROM customers
+WHERE last_name REGEXP "e[fmq]";
+```
+
+
+
+
+Result:
+No rows.
+
+
+
+
+### ▶️ 12. Last Name Containing a-h and then e
+
+
+
+```SQL
+-- Last Name Containing a-h and then e
+SELECT *
+FROM customers
+WHERE last_name REGEXP "[a-h]e";
+```
+
+
+
+Result:
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/47e1020f-28c4-41c0-a2da-ea1014d3bd8d)
+
+
+
+
