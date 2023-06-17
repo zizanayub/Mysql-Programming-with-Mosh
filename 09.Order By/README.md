@@ -242,3 +242,70 @@ Result:
 
 
 - Mr. Mosh advised to avoid this while querying. 
+
+
+
+
+
+
+
+### ✍️ 12. Exercise-01
+
+
+Question: Sort orders by total price where order id is 2 and this should be in discending order.
+
+
+
+```SQL
+-- 09. Exercise-01
+SELECT *
+FROM order_items
+WHERE order_id = 2
+ORDER BY quantity * unit_price DESC; 
+```
+
+
+
+Result: 
+3 rows returned.
+
+
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/1ad3828e-69f2-442c-ad7c-198821e54c4c)
+
+
+
+
+
+
+
+### ✍️ 12. Exercise-02
+
+
+
+Question: Additionally show total price column.
+
+
+
+
+```SQL
+-- 09. Exercise-01. Now show total price
+
+SELECT *,quantity * unit_price Total_Price
+FROM order_items
+WHERE order_id = 2
+ORDER BY 2; 
+```
+
+
+
+
+
+Result:
+3 rows returned.
+
+
+
+![image](https://github.com/zizanayub/Mysql-Programming-with-Mosh/assets/65456659/d0187df0-bc6e-4e20-86bc-4348968be52c)
