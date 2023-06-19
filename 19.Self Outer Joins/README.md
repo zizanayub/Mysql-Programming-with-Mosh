@@ -1,7 +1,7 @@
 ## 💡 Ideas/New Learnings/Insights
 
-                       |      Topic       |     No      |
-                       |------------------|----------------|
+                       |      Topic            |     No      |
+                       |------------------     |----------------|
                        | Self Join + Left Join |   2        |
 
 
