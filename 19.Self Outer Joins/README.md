@@ -1,3 +1,12 @@
+## 💡 Ideas/New Learnings/Insights
+
+                       |      Topic       |     No      |
+                       |------------------|----------------|
+                       | Self Join + Left Join |   2        |
+
+
+
+
 ### ▶️ 01.Query All the Employees with their Managers.
 
 
