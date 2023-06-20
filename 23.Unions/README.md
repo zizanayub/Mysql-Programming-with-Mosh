@@ -10,7 +10,7 @@ OR, Combines data from multiple queries.
 
 
 
-```
+```SQL
 -- Unions
 -- 01. Orders in current year and define status as "Active"
 
